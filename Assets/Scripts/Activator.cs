@@ -9,7 +9,7 @@ public class Activator : MonoBehaviour
 
     void Update()
     {
-        if (active && Input.GetKey(key) && Input.GetKeyDown(KeyCode.Space))
+        if (active && Input.GetKey(key))
         {
             Destroy(note);
             Debug.Log("Note hit!");

@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - hostile
+  - Note
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - background
   - Water
   - UI
   - 
