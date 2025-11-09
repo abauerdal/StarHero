@@ -105,7 +105,6 @@ MonoBehaviour:
   speed: 5
   rotation: 180
   lifetime: 2
-  timer: 0
 --- !u!61 &3254538512871189732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,5 +149,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.15, y: 0.15}
   m_EdgeRadius: 0
