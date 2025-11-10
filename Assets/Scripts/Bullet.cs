@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public Vector2 velocity;
+    public Vector2 direction;
     public float speed;
-    public float rotation;
     public float lifetime = 5f;
 
     private float timer;
@@ -14,12 +13,11 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         timer = lifetime;
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     void Update()
     {
-        transform.Translate(velocity.normalized * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
