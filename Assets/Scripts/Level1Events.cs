@@ -21,7 +21,7 @@ public class Level1Events : MonoBehaviour
             time = 5f,
             action = () =>
             {
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern());
+                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SingleBulletPattern());
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
@@ -31,7 +31,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 0; // Right
                 bulletSpawner.timeToLive = 10f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern());
+                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SingleBulletPattern());
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
