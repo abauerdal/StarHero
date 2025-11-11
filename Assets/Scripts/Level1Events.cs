@@ -21,17 +21,18 @@ public class Level1Events : MonoBehaviour
             time = 5f,
             action = () =>
             {
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern());
+                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern(3,20, true));
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
-                bulletSpawner.cooldown = 0.1f;
-                bulletSpawner.bulletSpeed = 8f;
-                bulletSpawner.bulletLife = 5f;
+                bulletSpawner.cooldown = 0.5f;
+                bulletSpawner.bulletSpeed = 3f;
+                bulletSpawner.bulletLife = 10f;
                 bulletSpawner.direction = 0; // Right
                 bulletSpawner.timeToLive = 10f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern());
+                /*
+                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern(3,20, true));
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
@@ -40,6 +41,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 180; // Left
                 bulletSpawner.timeToLive = 10f;
+                */
 
                 Debug.Log("5 seconds");
             }

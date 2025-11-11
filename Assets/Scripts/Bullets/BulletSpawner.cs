@@ -25,6 +25,7 @@ public class BulletSpawner : MonoBehaviour
     private IBulletPattern bulletPattern;
     public float direction; // Fixed rotation for the bullet
     public float timeToLive;
+    public int numberOfTimesShot = 0;
 
     private float cooldownTimer;
     private float timeToLiveTimer;
@@ -54,7 +55,8 @@ public class BulletSpawner : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer <= 0)
         {
-            SpawnBullet();
+            bulletPattern.ApplyPattern(this);
+            numberOfTimesShot++;
             cooldownTimer = cooldown;
         }
         if (timeToLiveTimer <= 0)
@@ -65,15 +67,14 @@ public class BulletSpawner : MonoBehaviour
         bulletSpawnerMovement.SpawnerMovement(this);
     }
 
-    public void SpawnBullet()
+    public void SpawnBullet(Vector3 position, Quaternion rotation)
     {
-        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], transform.position, Quaternion.identity);
+        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], position, rotation);
         Bullet bullet = spawnedBullet.GetComponent<Bullet>();
         if (bullet != null)
         { 
-            bullet.transform.rotation = transform.rotation;
             bullet.speed = bulletSpeed;
-            bullet.direction = transform.right;
+            bullet.lifetime = bulletLife;
         }
     }
 
