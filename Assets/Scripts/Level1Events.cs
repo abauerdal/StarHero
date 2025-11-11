@@ -3,7 +3,7 @@ using UnityEngine;
 public class Level1Events : MonoBehaviour
 {
     public LevelEventsHandler levelEventsHandler;
-    public GameObject BulletSpawner;
+    public BulletPatternSpawnerFactory bulletPatternFactory;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -21,29 +21,25 @@ public class Level1Events : MonoBehaviour
             time = 5f,
             action = () =>
             {
-                GameObject bulletSpawnerObject = Instantiate(BulletSpawner, new Vector3(0, 0, 0), Quaternion.identity);
+                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new SpiralBulletSpawnerMovement(180), new StraightBulletPattern());
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
                 bulletSpawner.cooldown = 0.1f;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
-                bulletSpawner.bulletPatternType = BulletPatternType.Spiral;
                 bulletSpawner.direction = 0; // Right
                 bulletSpawner.timeToLive = 10f;
-                bulletSpawner.rotationSpeed = 180f;
 
-                bulletSpawnerObject = Instantiate(BulletSpawner, new Vector3(0, 0, 0), Quaternion.identity);
+                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new SpiralBulletSpawnerMovement(180), new StraightBulletPattern());
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Square;
                 bulletSpawner.cooldown = 0.1f;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
-                bulletSpawner.bulletPatternType = BulletPatternType.Spiral;
                 bulletSpawner.direction = 180; // Left
                 bulletSpawner.timeToLive = 10f;
-                bulletSpawner.rotationSpeed = 180f;
 
                 Debug.Log("5 seconds");
             }

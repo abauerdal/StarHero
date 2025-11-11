@@ -21,10 +21,10 @@ public class BulletSpawner : MonoBehaviour
     public float cooldown; // Time between shots
     public float bulletSpeed;
     public float bulletLife;
-    public BulletPatternType bulletPatternType; // Type of bullet pattern
+    private IBulletSpawnerMovement bulletSpawnerMovement;
+    private IBulletPattern bulletPattern;
     public float direction; // Fixed rotation for the bullet
     public float timeToLive;
-    public float rotationSpeed;
 
     private float cooldownTimer;
     private float timeToLiveTimer;
@@ -62,10 +62,7 @@ public class BulletSpawner : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (bulletPatternType == BulletPatternType.Spiral)
-        {
-            transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime);
-        }
+        bulletSpawnerMovement.SpawnerMovement(this);
     }
 
     public void SpawnBullet()
@@ -78,6 +75,16 @@ public class BulletSpawner : MonoBehaviour
             bullet.speed = bulletSpeed;
             bullet.direction = transform.right;
         }
+    }
+
+    public void SetMovement(IBulletSpawnerMovement spawnerMovement)
+    {
+        this.bulletSpawnerMovement = spawnerMovement;
+    }
+
+    public void SetPattern(IBulletPattern pattern)
+    {
+        bulletPattern = pattern;
     }
 }
 
