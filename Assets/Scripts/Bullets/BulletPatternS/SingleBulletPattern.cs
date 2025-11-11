@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StraightBulletPattern : IBulletPattern
+public class SingleBulletPattern : IBulletPattern
 {
 
     public void ApplyPattern(BulletSpawner bulletSpawner)
