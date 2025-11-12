@@ -21,8 +21,7 @@ public class BulletSpawner : MonoBehaviour
     public float cooldown; // Time between shots
     public float bulletSpeed;
     public float bulletLife;
-    private IBulletSpawnerMovement bulletSpawnerMovement;
-    private IBulletPattern bulletPattern;
+    private IBulletPatternAttribute[] bulletPatternAttributes;
     public float direction; // Fixed rotation for the bullet
     public float timeToLive;
     public int numberOfTimesShot = 0;
@@ -55,8 +54,10 @@ public class BulletSpawner : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer <= 0)
         {
-            bulletSpawnerMovement.SpawnerMovement(this);
-            bulletPattern.ApplyPattern(this);
+            foreach (var bulletPatternAttribute in bulletPatternAttributes)
+            {
+                bulletPatternAttribute.Trigger(this);
+            }
             numberOfTimesShot++;
             cooldownTimer = cooldown;
         }
@@ -77,14 +78,9 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void SetMovement(IBulletSpawnerMovement spawnerMovement)
+    public void SetAttributes(IBulletPatternAttribute[] attributes)
     {
-        this.bulletSpawnerMovement = spawnerMovement;
-    }
-
-    public void SetPattern(IBulletPattern pattern)
-    {
-        bulletPattern = pattern;
+        this.bulletPatternAttributes = attributes;
     }
 }
 

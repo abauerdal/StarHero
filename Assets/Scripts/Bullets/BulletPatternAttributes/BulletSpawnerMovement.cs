@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletSpawnerMovement : IBulletSpawnerMovement
+public class BulletSpawnerMovement : IBulletPatternAttribute
 {
     //Allow to trace back instead of reseting to first position
     //Allow to set new angles at each position reached
@@ -17,7 +17,7 @@ public class BulletSpawnerMovement : IBulletSpawnerMovement
         currentTarget = 0;
         lastPosition = positions.Length - 1;
     }
-    public void SpawnerMovement(BulletSpawner bulletSpawner)
+    public void Trigger(BulletSpawner bulletSpawner)
     {
         //The actual distance between the last point and the target point
         float distanceToNextPoint = Vector3.Distance(positions[lastPosition], positions[currentTarget]);

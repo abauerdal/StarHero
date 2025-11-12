@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class SpreadBulletPattern : IBulletPattern
+public class SpreadBulletPattern : IBulletPatternAttribute
 {
     int numberOfBullets;
     float radiusOfSpread;
@@ -13,7 +13,7 @@ public class SpreadBulletPattern : IBulletPattern
         this.alternatingShots = alternatingShots;
     }
 
-    public void ApplyPattern(BulletSpawner bulletSpawner)
+    public void Trigger(BulletSpawner bulletSpawner)
     {
         var angleBetweenBullets = radiusOfSpread / (numberOfBullets - 1);
         float startAngle = -radiusOfSpread / 2f;

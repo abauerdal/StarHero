@@ -1,6 +1,5 @@
 using UnityEngine;
-
-public class WaveBulletSpawnerMovemenet : IBulletSpawnerMovement
+public class BulletSpawnerSpin : IBulletPatternAttribute
 {
     int numberOfBulletsPerWave;
     float radiusOfWave;
@@ -8,7 +7,7 @@ public class WaveBulletSpawnerMovemenet : IBulletSpawnerMovement
     private int numberOfBulletsPerTwoWaves;
     private float startAngle;
     private float angleBetweenBullets;
-    public WaveBulletSpawnerMovemenet(int numberOfBulletsPerWave, float radiusOfWave, bool backAndForth)
+    public BulletSpawnerSpin(int numberOfBulletsPerWave, float radiusOfWave, bool backAndForth)
     {
         this.numberOfBulletsPerWave = numberOfBulletsPerWave;
         this.radiusOfWave = radiusOfWave;
@@ -18,7 +17,7 @@ public class WaveBulletSpawnerMovemenet : IBulletSpawnerMovement
         this.angleBetweenBullets = radiusOfWave / (numberOfBulletsPerWave - 1);
     }
 
-    public void SpawnerMovement(BulletSpawner bulletSpawner)
+    public void Trigger(BulletSpawner bulletSpawner)
     {
         if (bulletSpawner.numberOfTimesShot == 0)
         {
@@ -34,7 +33,8 @@ public class WaveBulletSpawnerMovemenet : IBulletSpawnerMovement
         }
         else
         {
-            if(radiusOfWave == 360) { 
+            if (radiusOfWave == 360)
+            {
                 bulletsFiredOnThisWave = bulletSpawner.numberOfTimesShot % (numberOfBulletsPerWave - 1);
             }
             else
