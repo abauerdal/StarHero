@@ -55,6 +55,7 @@ public class BulletSpawner : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer <= 0)
         {
+            bulletSpawnerMovement.SpawnerMovement(this);
             bulletPattern.ApplyPattern(this);
             numberOfTimesShot++;
             cooldownTimer = cooldown;
@@ -63,8 +64,6 @@ public class BulletSpawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        bulletSpawnerMovement.SpawnerMovement(this);
     }
 
     public void SpawnBullet(Vector3 position, Quaternion rotation)

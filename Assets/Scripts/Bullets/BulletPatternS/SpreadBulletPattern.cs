@@ -25,6 +25,11 @@ public class SpreadBulletPattern : IBulletPattern
             startAngle += angleBetweenBullets / 2;
         }
 
+        if(radiusOfSpread == 360)
+        {
+            numberOfTimesToShoot--;
+        }
+
         for (int i = 0; i < numberOfTimesToShoot; i++)
         {
             float angle = startAngle + (angleBetweenBullets * i);
