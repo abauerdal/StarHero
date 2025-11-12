@@ -10,6 +10,8 @@ public class Level1Events : MonoBehaviour
     //Direction 0 = right, 90 = up, 180 = left, 270 = down
     void Start()
     {
+        var BEATS_TO_SECONDS = 240 / 130;
+
         levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
         {
             time = 1.0f,
@@ -18,7 +20,7 @@ public class Level1Events : MonoBehaviour
 
         levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
         {
-            time = 5f,
+            time = 0f,
             action = () =>
             {
 
@@ -50,16 +52,16 @@ public class Level1Events : MonoBehaviour
                     new SpreadBulletPattern(5, 20, false)
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-15, 0);
+                bulletSpawnerObject.transform.position = new Vector3(-9, 0);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Circle;
-                bulletSpawner.cooldown = 1f;
+                bulletSpawner.cooldown = BEATS_TO_SECONDS;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
-                bulletSpawner.timeToLive = 10f;
+                bulletSpawner.timeToLive = 100f;
 
                 bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
                 {
@@ -67,16 +69,16 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(12, 0);
+                bulletSpawnerObject.transform.position = new Vector3(9, 0);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Circle;
-                bulletSpawner.cooldown = 1f;
+                bulletSpawner.cooldown = BEATS_TO_SECONDS;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
-                bulletSpawner.timeToLive = 10f;
+                bulletSpawner.timeToLive = 100f;
 
 
                 /*

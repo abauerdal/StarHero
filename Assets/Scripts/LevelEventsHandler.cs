@@ -7,6 +7,8 @@ public class LevelEventsHandler : MonoBehaviour
 {
     public AudioSource musicSource;
 
+    public static double songTime = 0;
+
     public class LevelEvent
     {
         public float time;
@@ -28,7 +30,7 @@ public class LevelEventsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        double songTime = AudioSettings.dspTime - songStartDSPTime;
+        songTime = AudioSettings.dspTime - songStartDSPTime;
 
         foreach (var e in levelEvents)
         {
