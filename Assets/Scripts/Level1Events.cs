@@ -21,42 +21,49 @@ public class Level1Events : MonoBehaviour
             time = 5f,
             action = () =>
             {
-                /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern(3,20, true));
+                
+                
+                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, 
+                    new BulletSpawnerMovement(
+                        new Vector3[] 
+                        {new Vector3(-1,0),
+                        new Vector3(1,0)},
+                        25),
+                    new SingleBulletPattern());
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Square;
-                bulletSpawner.cooldown = 0.5f;
+                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.cooldown = 0.1f;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
-                bulletSpawner.direction = 0; // Right
-                bulletSpawner.timeToLive = 10f;
-                */
+                bulletSpawner.direction = 270; // Right
+                bulletSpawner.timeToLive = 30f;
+                
 
-
+                /*
                 var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new StraightBulletSpawnerMovement(), new SpreadBulletPattern(30, 360, false));
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Square;
+                bulletSpawner.bulletShape = BulletShape.Circle;
                 bulletSpawner.cooldown = 0.1f;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 180; // Left
                 bulletSpawner.timeToLive = 10f;
-                
+                */
 
                 /*
                 var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new WaveBulletSpawnerMovemenet(30, 360, false), new SingleBulletPattern());
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Square;
+                bulletSpawner.bulletShape = BulletShape.Circle;
                 bulletSpawner.cooldown = 0.1f;
                 bulletSpawner.bulletSpeed = 4f;
                 bulletSpawner.bulletLife = 5f;
-                bulletSpawner.direction = 270; // Left
+                bulletSpawner.direction = 270; // Down
                 bulletSpawner.timeToLive = 10f;
                 */
-                
+
 
                 Debug.Log("5 seconds");
             }
