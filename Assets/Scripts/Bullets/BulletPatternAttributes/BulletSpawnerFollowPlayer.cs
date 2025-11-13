@@ -9,7 +9,7 @@ public class BulletSpawnerFollowPlayer : IBulletPatternAttribute
 
     public void Trigger(BulletSpawner bulletSpawner)
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
+        var player = bulletSpawner.playerTransform;
         Vector3 direction = player.transform.position - bulletSpawner.transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bulletSpawner.transform.rotation = Quaternion.Euler(0, 0, angle);

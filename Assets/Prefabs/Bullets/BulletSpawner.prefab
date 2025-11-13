@@ -49,11 +49,15 @@ MonoBehaviour:
     prefab: {fileID: 4493589431369528596, guid: ec8c14da8f459e549925e3268bcecc58, type: 3}
   - key: 1
     prefab: {fileID: 4493589431369528596, guid: ec8c14da8f459e549925e3268bcecc58, type: 3}
+  - key: 2
+    prefab: {fileID: 4960160141182142759, guid: b7a95a8e7ac0fd04cb2fe5cf193871e6, type: 3}
+  - key: 3
+    prefab: {fileID: 4493589431369528596, guid: fcf1ff180d8b6e843ba588d22d0555af, type: 3}
   bulletShape: 0
   cooldown: 0.3
   bulletSpeed: 5
   bulletLife: 5
-  bulletVelocity: {x: 1, y: 1}
-  bulletPatternType: 0
-  rotation: 180
+  direction: 0
   timeToLive: 5
+  numberOfTimesShot: 0
+  playerTransform: {fileID: 0}

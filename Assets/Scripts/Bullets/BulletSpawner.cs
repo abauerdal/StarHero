@@ -1,5 +1,6 @@
 // BulletSpawner.cs
 // Simplified version for single bullet spawning with fixed rotation
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,6 +27,9 @@ public class BulletSpawner : MonoBehaviour
     public float timeToLive;
     public int numberOfTimesShot = 0;
     private double deathTimeDSP;
+    public Transform playerTransform;
+    public bool freezeBulletRotation;
+    public float spriteOffSet;
 
     double songTimeAtCreation;
 
@@ -46,10 +50,12 @@ public class BulletSpawner : MonoBehaviour
         songTimeAtCreation = LevelEventsHandler.songTime;
         deathTimeDSP = songTimeAtCreation + timeToLive;
         transform.rotation = Quaternion.Euler(0, 0, direction);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
+        Debug.DrawRay(transform.position, transform.rotation * Vector3.right, Color.red);
         double currentSongTime = LevelEventsHandler.songTime;
         double nextShotTime = songTimeAtCreation + (numberOfTimesShot * cooldown);
 
@@ -69,12 +75,19 @@ public class BulletSpawner : MonoBehaviour
 
     public void SpawnBullet(Vector3 position, Quaternion rotation)
     {
-        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], position, rotation);
-        Bullet bullet = spawnedBullet.GetComponent<Bullet>();
-        if (bullet != null)
-        { 
-            bullet.speed = bulletSpeed;
-            bullet.lifetime = bulletLife;
+        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], position, Quaternion.identity);
+        Bullet[] bullets = spawnedBullet.GetComponentsInChildren<Bullet>();
+        if (bullets != null && bullets.Length > 0)
+        {
+            foreach (var bullet in bullets)
+            {
+                bullet.direction = rotation * Vector3.right;
+                bullet.speed = bulletSpeed;
+                bullet.lifetime = bulletLife;
+                bullet.freezeRotation = freezeBulletRotation;
+                bullet.spriteOffSet = spriteOffSet;
+            }
+
         }
     }
 
