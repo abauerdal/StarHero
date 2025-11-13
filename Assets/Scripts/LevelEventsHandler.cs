@@ -23,7 +23,7 @@ public class LevelEventsHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        songStartDSPTime = AudioSettings.dspTime;
+        songStartDSPTime = AudioSettings.dspTime + 1f;
         musicSource.PlayScheduled(songStartDSPTime);
     }
 

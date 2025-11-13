@@ -10,7 +10,7 @@ public class Level1Events : MonoBehaviour
     //Direction 0 = right, 90 = up, 180 = left, 270 = down
     void Start()
     {
-        var BEATS_TO_SECONDS = 240 / 130;
+        float BARS_TO_SECONDS = 240f / 130f;
 
         levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
         {
@@ -57,7 +57,7 @@ public class Level1Events : MonoBehaviour
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Circle;
-                bulletSpawner.cooldown = BEATS_TO_SECONDS;
+                bulletSpawner.cooldown = BARS_TO_SECONDS;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
@@ -74,7 +74,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Circle;
-                bulletSpawner.cooldown = BEATS_TO_SECONDS;
+                bulletSpawner.cooldown = BARS_TO_SECONDS;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
@@ -92,9 +92,6 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 270;
                 bulletSpawner.timeToLive = 10f;
                 */
-
-
-                Debug.Log("5 seconds");
             }
         });
     }

@@ -25,9 +25,9 @@ public class BulletSpawner : MonoBehaviour
     public float direction; // Fixed rotation for the bullet
     public float timeToLive;
     public int numberOfTimesShot = 0;
+    private double deathTimeDSP;
 
-    private float cooldownTimer;
-    private float timeToLiveTimer;
+    double songTimeAtCreation;
 
     private Dictionary<BulletShape, GameObject> bulletDict;
 
@@ -43,25 +43,25 @@ public class BulletSpawner : MonoBehaviour
 
     void Start()
     {
-        cooldownTimer = cooldown;
-        timeToLiveTimer = timeToLive;
+        songTimeAtCreation = LevelEventsHandler.songTime;
+        deathTimeDSP = songTimeAtCreation + timeToLive;
         transform.rotation = Quaternion.Euler(0, 0, direction);
     }
 
     void Update()
     {
-        timeToLiveTimer -= Time.deltaTime;
-        cooldownTimer -= Time.deltaTime;
-        if (cooldownTimer <= 0)
+        double currentSongTime = LevelEventsHandler.songTime;
+        double nextShotTime = songTimeAtCreation + (numberOfTimesShot * cooldown);
+
+        if (currentSongTime >= nextShotTime)
         {
             foreach (var bulletPatternAttribute in bulletPatternAttributes)
             {
                 bulletPatternAttribute.Trigger(this);
             }
             numberOfTimesShot++;
-            cooldownTimer = cooldown;
         }
-        if (timeToLiveTimer <= 0)
+        if (currentSongTime >= deathTimeDSP)
         {
             Destroy(gameObject);
         }
