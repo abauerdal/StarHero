@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     {
         bulletTimer -= Time.deltaTime;
 
-        wasHitThisFrame = false;
         /*
         if (Input.GetKey(KeyCode.Space) && bulletTimer <= 0)
         {
@@ -37,6 +36,12 @@ public class Player : MonoBehaviour
         }
         */
     }
+
+    void LateUpdate()
+    {
+        wasHitThisFrame = false;
+    }
+
 
     public void Shoot()
     {

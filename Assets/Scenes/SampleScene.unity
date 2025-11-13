@@ -1160,6 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2130110423}
   pointsPerScrape: 1
+  scrapeInterval: 0.1
 --- !u!58 &1075991370
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1195,7 +1196,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.17
+  m_Radius: 0.2
 --- !u!1 &1336351436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1599,7 @@ PrefabInstance:
     - target: {fileID: 2302188400161584239, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 0}
     - target: {fileID: 2742784361008391435, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.27830788
@@ -1722,11 +1723,11 @@ PrefabInstance:
       objectReference: {fileID: 1336351437}
     - target: {fileID: 8777703929922496728, guid: 1d01f3594b8d7384aa74b8174fd914f3, type: 3}
       propertyPath: m_Radius
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8777703929922496728, guid: 1d01f3594b8d7384aa74b8174fd914f3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1799,7 +1800,7 @@ PrefabInstance:
     - target: {fileID: 8897914870122040591, guid: 077b3c999d2204442b24ef3f502a6a12, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1873,7 +1874,7 @@ PrefabInstance:
     - target: {fileID: 778601196561462006, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 0}
     - target: {fileID: 1376248082736020291, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: m_Name
       value: ActivatorP
@@ -1994,7 +1995,7 @@ PrefabInstance:
     - target: {fileID: 6227137293331642534, guid: b8cb6fb142e68e0419a6c31728e1fa1f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
