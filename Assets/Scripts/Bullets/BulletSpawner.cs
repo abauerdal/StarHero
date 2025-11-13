@@ -1,5 +1,6 @@
 // BulletSpawner.cs
 // Simplified version for single bullet spawning with fixed rotation
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -21,14 +22,16 @@ public class BulletSpawner : MonoBehaviour
     public float cooldown; // Time between shots
     public float bulletSpeed;
     public float bulletLife;
-    private IBulletSpawnerMovement bulletSpawnerMovement;
-    private IBulletPattern bulletPattern;
+    private IBulletPatternAttribute[] bulletPatternAttributes;
     public float direction; // Fixed rotation for the bullet
     public float timeToLive;
     public int numberOfTimesShot = 0;
+    private double deathTimeDSP;
+    public Transform playerTransform;
+    public bool freezeBulletRotation;
+    public float spriteOffSet;
 
-    private float cooldownTimer;
-    private float timeToLiveTimer;
+    double songTimeAtCreation;
 
     private Dictionary<BulletShape, GameObject> bulletDict;
 
@@ -44,48 +47,53 @@ public class BulletSpawner : MonoBehaviour
 
     void Start()
     {
-        cooldownTimer = cooldown;
-        timeToLiveTimer = timeToLive;
+        songTimeAtCreation = LevelEventsHandler.songTime;
+        deathTimeDSP = songTimeAtCreation + timeToLive;
         transform.rotation = Quaternion.Euler(0, 0, direction);
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        timeToLiveTimer -= Time.deltaTime;
-        cooldownTimer -= Time.deltaTime;
-        if (cooldownTimer <= 0)
+        Debug.DrawRay(transform.position, transform.rotation * Vector3.right, Color.red);
+        double currentSongTime = LevelEventsHandler.songTime;
+        double nextShotTime = songTimeAtCreation + (numberOfTimesShot * cooldown);
+
+        if (currentSongTime >= nextShotTime)
         {
-            bulletPattern.ApplyPattern(this);
+            foreach (var bulletPatternAttribute in bulletPatternAttributes)
+            {
+                bulletPatternAttribute.Trigger(this);
+            }
             numberOfTimesShot++;
-            cooldownTimer = cooldown;
         }
-        if (timeToLiveTimer <= 0)
+        if (currentSongTime >= deathTimeDSP)
         {
             Destroy(gameObject);
         }
-
-        bulletSpawnerMovement.SpawnerMovement(this);
     }
 
     public void SpawnBullet(Vector3 position, Quaternion rotation)
     {
-        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], position, rotation);
-        Bullet bullet = spawnedBullet.GetComponent<Bullet>();
-        if (bullet != null)
-        { 
-            bullet.speed = bulletSpeed;
-            bullet.lifetime = bulletLife;
+        GameObject spawnedBullet = Instantiate(bulletDict[bulletShape], position, Quaternion.identity);
+        Bullet[] bullets = spawnedBullet.GetComponentsInChildren<Bullet>();
+        if (bullets != null && bullets.Length > 0)
+        {
+            foreach (var bullet in bullets)
+            {
+                bullet.direction = rotation * Vector3.right;
+                bullet.speed = bulletSpeed;
+                bullet.lifetime = bulletLife;
+                bullet.freezeRotation = freezeBulletRotation;
+                bullet.spriteOffSet = spriteOffSet;
+            }
+
         }
     }
 
-    public void SetMovement(IBulletSpawnerMovement spawnerMovement)
+    public void SetAttributes(IBulletPatternAttribute[] attributes)
     {
-        this.bulletSpawnerMovement = spawnerMovement;
-    }
-
-    public void SetPattern(IBulletPattern pattern)
-    {
-        bulletPattern = pattern;
+        this.bulletPatternAttributes = attributes;
     }
 }
 
