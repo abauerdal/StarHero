@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f1dfd91a034df80479ff933b0440f2d7
+guid: 8c5b18a2b03ac8040ac9cc85096c13a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3313826755392718246
-    second: StarShip_mark1_0
+      213: 8008629302096321385
+    second: StarShip_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StarShip_mark1_0
+      name: StarShip_0
       rect:
         serializedVersion: 2
         x: 16
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a54e5a60e31dfd20800000000000000
-      internalID: 3313826755392718246
+      spriteID: 96b5c313bed542f60800000000000000
+      internalID: 8008629302096321385
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      StarShip_mark1_0: 3313826755392718246
+      StarShip_0: 8008629302096321385
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

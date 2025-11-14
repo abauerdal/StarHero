@@ -54,6 +54,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4493589431369528596, guid: e3a24c1b848f75d42a57fbe14adb83a7, type: 3}
   bulletSpawnPoint: {fileID: 1491871702030106344}
   bulletSpeed: 3
+  playerHealthText: {fileID: 0}
+  WhammyBarText: {fileID: 0}
+  wasHitThisFrame: 0
+  damagePerHit: 1
 --- !u!114 &8258421871407181610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,12 +115,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3313826755392718246, guid: f1dfd91a034df80479ff933b0440f2d7, type: 3}
+  m_Sprite: {fileID: 8008629302096321385, guid: 8c5b18a2b03ac8040ac9cc85096c13a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.32, y: 0.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -200,8 +204,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.26666668, y: 0.30833334}
-    newSize: {x: 0.2, y: 0.2}
+    oldSize: {x: 0.32, y: 0.37}
+    newSize: {x: 0.32, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
