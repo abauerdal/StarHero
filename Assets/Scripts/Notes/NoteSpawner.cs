@@ -11,8 +11,7 @@ public class NoteSpawner : MonoBehaviour
     public GameObject normalNotePrefab;
     public GameObject[] lanePrefabs = new GameObject[4];
     public Transform[] laneSpawnPoints;
-    public float noteSpeed = 5f;
-
+  
     public NoteEvent[] chart = new NoteEvent[]
     {
         new NoteEvent { time = 1.0f, lane = 3 },
@@ -39,9 +38,6 @@ public class NoteSpawner : MonoBehaviour
     void SpawnNote(NoteEvent noteEvent)
     {
         GameObject prefab = lanePrefabs[noteEvent.lane];
-        Note noteScript = prefab.GetComponent<Note>();
-        noteScript.SetSpeed(noteSpeed);
-
         Transform spawnPoint = laneSpawnPoints[noteEvent.lane];
         Instantiate(prefab, spawnPoint.position, Quaternion.identity);
     }
