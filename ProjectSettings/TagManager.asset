@@ -6,6 +6,9 @@ TagManager:
   tags:
   - hostile
   - Note
+  - HoldStart
+  - HoldEnd
+  - HoldNote
   layers:
   - Default
   - TransparentFX
