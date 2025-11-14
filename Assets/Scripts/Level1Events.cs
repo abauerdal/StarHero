@@ -30,11 +30,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-9.9f, 3);
+                bulletSpawnerObject.transform.position = new Vector3(-5f, 1f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
@@ -46,11 +46,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(3.3f, 1.5f);
+                bulletSpawnerObject.transform.position = new Vector3(5f, 0f);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
@@ -62,11 +62,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-9.9f, 0);
+                bulletSpawnerObject.transform.position = new Vector3(-5f, -1f);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
@@ -78,11 +78,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(3.3f, -1.5f);
+                bulletSpawnerObject.transform.position = new Vector3(5f, -2f);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
@@ -96,19 +96,19 @@ public class Level1Events : MonoBehaviour
                 {
                     new BulletSpawnerMovement(
                         new Vector3[]
-                        {new Vector3(-9.7f,3),
-                        new Vector3(3.1f,3)},
-                        12),
+                        {new Vector3(-4.8f,2),
+                        new Vector3(4.8f,2)},
+                        10),
                     new SingleBulletPattern()
                 });
 
 
-                bulletSpawnerObject.transform.position = new Vector3(-9.9f, 3f);
+                bulletSpawnerObject.transform.position = new Vector3(-4.8f, 2f);
 
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 16;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 10f;
@@ -124,11 +124,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-9.9f, 0);
+                bulletSpawnerObject.transform.position = new Vector3(-5f, -1.25f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 4;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 5f;
@@ -141,11 +141,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(3.3f, 0);
+                bulletSpawnerObject.transform.position = new Vector3(5f, -1.25f);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 4;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 5f;
@@ -161,11 +161,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-3f, -4.9f);
+                bulletSpawnerObject.transform.position = new Vector3(0f, -4.5f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 32;
                 bulletSpawner.bulletSpeed = 3f;
                 bulletSpawner.bulletLife = 5f;
@@ -181,11 +181,11 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-3f, 0f);
+                bulletSpawnerObject.transform.position = new Vector3(0f, -1.25f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 32;
                 bulletSpawner.bulletSpeed = 2f;
                 bulletSpawner.bulletLife = 5f;
@@ -200,11 +200,11 @@ public class Level1Events : MonoBehaviour
                     new SpreadBulletPattern(5, 50, false)
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(1, -4.9f);
+                bulletSpawnerObject.transform.position = new Vector3(2, -4.5f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 1f;
                 bulletSpawner.bulletLife = 10f;
@@ -217,11 +217,11 @@ public class Level1Events : MonoBehaviour
                     new SpreadBulletPattern(5, 50, true)
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-6, -4.9f);
+                bulletSpawnerObject.transform.position = new Vector3(-2, -4.5f);
 
                 bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 1f;
                 bulletSpawner.bulletLife = 10f;
@@ -236,11 +236,11 @@ public class Level1Events : MonoBehaviour
                     new SpreadBulletPattern(16, 360, true)
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-3, 0f);
+                bulletSpawnerObject.transform.position = new Vector3(0, -1.25f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
-                bulletSpawner.bulletShape = BulletShape.Circle;
+                bulletSpawner.bulletShape = BulletShape.BigCircle;
                 bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 2f;
                 bulletSpawner.bulletLife = 10f;
@@ -249,26 +249,26 @@ public class Level1Events : MonoBehaviour
                 */
 
                 //Needle (no freeze bullet rotation & player follow)
-                /*
+                
                 var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerFollowPlayer(),
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(3.3f, 0);
+                bulletSpawnerObject.transform.position = new Vector3(5f, -1.25f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Needle;
-                bulletSpawner.cooldown = BARS_TO_SECONDS;
+                bulletSpawner.cooldown = BARS_TO_SECONDS / 4;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
                 bulletSpawner.timeToLive = 100f;
                 bulletSpawner.freezeBulletRotation = false;
                 bulletSpawner.spriteOffSet = -45f;
-                */
+                
 
                 //Note Pattern (freeze bullet rotation)
                 /*
@@ -277,7 +277,7 @@ public class Level1Events : MonoBehaviour
                     new BulletSpawnerFollowPlayer(),
                     new SingleBulletPattern()
                 });
-                bulletSpawnerObject.transform.position = new Vector3(3.3f, 0);
+                bulletSpawnerObject.transform.position = new Vector3(5f, -1.25f);
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.NotePattern;

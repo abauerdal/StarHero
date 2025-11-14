@@ -6,4 +6,5 @@ public enum BulletShape
     Circle,
     NotePattern,
     Needle,
+    BigCircle
 }
