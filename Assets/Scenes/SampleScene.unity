@@ -1744,6 +1744,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2028211738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5049598069118604668, guid: 5051b0a1c45e1f42c8e3a6c8891069a4, type: 3}
+  m_PrefabInstance: {fileID: 556356210}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2076672830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1895,7 +1906,7 @@ PrefabInstance:
     - target: {fileID: 2302188400161584239, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 474252370}
     - target: {fileID: 2742784361008391435, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: m_LocalScale.x
       value: 8
@@ -2205,7 +2216,7 @@ PrefabInstance:
     - target: {fileID: 8897914870122040591, guid: 077b3c999d2204442b24ef3f502a6a12, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 474252370}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2355,7 +2366,7 @@ PrefabInstance:
     - target: {fileID: 778601196561462006, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 474252370}
     - target: {fileID: 1376248082736020291, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: m_Name
       value: ActivatorP
@@ -2504,7 +2515,7 @@ PrefabInstance:
     - target: {fileID: 6227137293331642534, guid: b8cb6fb142e68e0419a6c31728e1fa1f, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2130110423}
+      objectReference: {fileID: 474252370}
     - target: {fileID: 8995942320424340362, guid: b8cb6fb142e68e0419a6c31728e1fa1f, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2534,6 +2545,7 @@ SceneRoots:
   - {fileID: 8144705326940754777}
   - {fileID: 752451133}
   - {fileID: 747747332}
+  - {fileID: 556356210}
   - {fileID: 89658585}
   - {fileID: 97630229}
   - {fileID: 323501577}
