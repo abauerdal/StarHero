@@ -18,6 +18,12 @@ public class Note : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb.linearVelocity = new Vector2(0, -speed);
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.position += Vector3.down * speed * Time.deltaTime;
     }
 }

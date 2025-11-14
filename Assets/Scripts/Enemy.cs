@@ -1,19 +1,49 @@
 using UnityEngine;
+using UnityEngine.UI; // Needed for Text UI
 
 public class Enemy : MonoBehaviour
 {
-    // needs HP, a BulletSpawner, a Bullet type to give to the spawner.
+    [Header("Enemy Settings")]
+    public float maxHealth = 100f;     // total health
+    public float damagePerHit = 1f;    // each bullet does this much damage
 
+    [Header("UI Settings")]
+    public Text healthText;            // Assign a UI Text element in the Inspector
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float currentHealth;
+
     void Start()
     {
-        
+        currentHealth = maxHealth;
+        UpdateHealthText();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player_bullet"))
+        {
+            TakeDamage(damagePerHit);
+            Destroy(other.gameObject);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHealthText();
+
+    }
+
+    void UpdateHealthText()
+    {
+        if (healthText != null)
+        {
+            healthText.text = $"Enemy Health: {currentHealth:0}";
+        }
     }
 }

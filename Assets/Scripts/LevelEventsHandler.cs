@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class LevelEventsHandler : MonoBehaviour
 {
     public AudioSource musicSource;
+
+    public static double songTime = 0;
 
     public class LevelEvent
     {
@@ -21,14 +22,14 @@ public class LevelEventsHandler : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        songStartDSPTime = AudioSettings.dspTime;
+        songStartDSPTime = AudioSettings.dspTime + 5f;
         musicSource.PlayScheduled(songStartDSPTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        double songTime = AudioSettings.dspTime - songStartDSPTime;
+        songTime = AudioSettings.dspTime - songStartDSPTime;
 
         foreach (var e in levelEvents)
         {
