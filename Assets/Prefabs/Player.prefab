@@ -8,13 +8,13 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1491871702030106344}
-  - component: {fileID: 2273330468752558100}
+  - component: {fileID: 1807144984591471178}
   - component: {fileID: 8258421871407181610}
   - component: {fileID: 2200730940271033292}
   - component: {fileID: 314455596084592238}
   - component: {fileID: 3474061371721517663}
   - component: {fileID: 170842304794228703}
+  - component: {fileID: 4395673174425522497}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -34,31 +34,9 @@ Transform:
   m_LocalPosition: {x: -4.62, y: -1.18, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6053840102019989316}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4395673174425522497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3881844347720242267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca170fd71ecb8144b2d1da72e3f547f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startHp: 3
-  bulletCooldown: 0.2
-  bulletPrefab: {fileID: 4493589431369528596, guid: e3a24c1b848f75d42a57fbe14adb83a7, type: 3}
-  bulletSpawnPoint: {fileID: 1807144984591471178}
-  bulletSpeed: 3
-  playerHealthText: {fileID: 0}
-  WhammyBarText: {fileID: 0}
-  wasHitThisFrame: 0
-  damagePerHit: 1
 --- !u!114 &8258421871407181610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +50,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  leftTilt: {fileID: -836509585683197270, guid: 519fcf8d4d311a14fbf540401c9f94ad, type: 3}
+  rightTilt: {fileID: 1442709246428243904, guid: 69c39522c32013a49a6eaa1760f7b2a8, type: 3}
+  noTilt: {fileID: 8008629302096321385, guid: 8c5b18a2b03ac8040ac9cc85096c13a7, type: 3}
+  playerSprite: {fileID: 2200730940271033292}
 --- !u!212 &2200730940271033292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +116,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776449007882057937}
+  m_GameObject: {fileID: 3881844347720242267}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -160,7 +142,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776449007882057937}
+  m_GameObject: {fileID: 3881844347720242267}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0851cfaed918223488385c7e17095980, type: 3}
@@ -205,7 +187,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.37}
+    oldSize: {x: 0.26666668, y: 0.30833334}
     newSize: {x: 0.32, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -222,3 +204,24 @@ PolygonCollider2D:
       - {x: 0.074552834, y: -0.024261555}
       - {x: 0.000067732064, y: 0.08705285}
   m_UseDelaunayMesh: 0
+--- !u!114 &4395673174425522497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881844347720242267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca170fd71ecb8144b2d1da72e3f547f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHp: 3
+  bulletCooldown: 0.2
+  bulletPrefab: {fileID: 4493589431369528596, guid: e3a24c1b848f75d42a57fbe14adb83a7, type: 3}
+  bulletSpawnPoint: {fileID: 1807144984591471178}
+  bulletSpeed: 3
+  playerHealthText: {fileID: 0}
+  WhammyBarText: {fileID: 0}
+  wasHitThisFrame: 0
+  damagePerHit: 1
