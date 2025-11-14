@@ -11,6 +11,7 @@ public class Level1Events : MonoBehaviour
     void Start()
     {
         float BARS_TO_SECONDS = 240f / 130f;
+        float BEATS_TO_SECONDS = 60f / 130f;
 
         levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
         {

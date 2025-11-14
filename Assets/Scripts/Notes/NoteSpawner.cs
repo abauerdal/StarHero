@@ -8,30 +8,43 @@ public class NoteEvent
 
 public class NoteSpawner : MonoBehaviour
 {
-    public GameObject normalNotePrefab;
+    public LevelEventsHandler levelEventsHandler;
     public GameObject[] lanePrefabs = new GameObject[4];
     public Transform[] laneSpawnPoints;
-  
+
+    static float BARS_TO_SECONDS = 240f / 140f;
+    static float BEATS_TO_SECONDS = 60f / 140f;
+
     public NoteEvent[] chart = new NoteEvent[]
     {
-        new NoteEvent { time = 1.0f, lane = 3 },
-        new NoteEvent { time = 1.2f, lane = 0 },
-        new NoteEvent { time = 1.5f, lane = 1 },
-        new NoteEvent { time = 1.8f, lane = 2 },
-        new NoteEvent { time = 2.5f, lane = 3 },
-        new NoteEvent { time = 2.7f, lane = 0 },
-        new NoteEvent { time = 3.0f, lane = 1 },
-        new NoteEvent { time = 3.2f, lane = 2 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 0, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 1, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 2, lane = 1 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 3, lane = 1 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 4, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 5, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 6, lane = 1 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 0) + (BEATS_TO_SECONDS / 2) * 7, lane = 1 },
+
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 0, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 1, lane = 0 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 2, lane = 1 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 3, lane = 1 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 4, lane = 2 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 5, lane = 2 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 6, lane = 3 },
+        new NoteEvent { time = (BARS_TO_SECONDS * 1) + (BEATS_TO_SECONDS / 2) * 7, lane = 3 },
     };
 
-    private int nextNoteIndex = 0;
-
-    void Update()
+    private void Start()
     {
-        if (nextNoteIndex < chart.Length && Time.time >= chart[nextNoteIndex].time)
+        foreach(NoteEvent note in chart)
         {
-            SpawnNote(chart[nextNoteIndex]);
-            nextNoteIndex++;
+            levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
+            {
+                time = note.time - 2.2f,
+                action = () => SpawnNote(note)
+            });
         }
     }
 
