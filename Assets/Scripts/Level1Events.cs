@@ -262,7 +262,7 @@ public class Level1Events : MonoBehaviour
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Needle;
-                bulletSpawner.cooldown = BARS_TO_SECONDS / 4;
+                bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
                 bulletSpawner.bulletSpeed = 8f;
                 bulletSpawner.bulletLife = 5f;
                 bulletSpawner.direction = 270;
