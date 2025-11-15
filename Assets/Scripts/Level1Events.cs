@@ -24,6 +24,34 @@ public class Level1Events : MonoBehaviour
             time = 0f,
             action = () =>
             {
+                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                {
+                    new BulletSpawnerFollowPlayer(),
+                    new SingleBulletPattern()
+                });
+
+                bulletSpawnerObject.transform.position = new Vector3(-3f, -1.25f);
+
+                BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
+
+                bulletSpawner.bulletShape = BulletShape.Needle;
+                bulletSpawner.cooldown = BARS_TO_SECONDS / 2; // higher number is more often shots.
+                bulletSpawner.bulletSpeed = 8f; //self explanatory
+                bulletSpawner.bulletLife = 5f; //despawn once offscreen, keep around 5f.
+                bulletSpawner.direction = 90; //90 is facing down, 180 facing down, 270 facing left.
+                bulletSpawner.timeToLive = 100f; //when to stop firing.
+                bulletSpawner.freezeBulletRotation = false; //what do these last two do malcolm lol i forgot
+                bulletSpawner.spriteOffSet = -45f; // ^
+
+
+            }
+        });
+
+        levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
+        {
+            time = 0f,
+            action = () =>
+            {
                 //Single Bullet
                 /*
                 var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
@@ -262,9 +290,9 @@ public class Level1Events : MonoBehaviour
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 
                 bulletSpawner.bulletShape = BulletShape.Needle;
-                bulletSpawner.cooldown = BARS_TO_SECONDS / 2;
-                bulletSpawner.bulletSpeed = 8f;
-                bulletSpawner.bulletLife = 5f;
+                bulletSpawner.cooldown = BARS_TO_SECONDS / 2; // higher number is more often shots.
+                bulletSpawner.bulletSpeed = 8f; //self explanatory
+                bulletSpawner.bulletLife = 5f; //despawn once offscreen, keep around 5f.
                 bulletSpawner.direction = 270;
                 bulletSpawner.timeToLive = 100f;
                 bulletSpawner.freezeBulletRotation = false;
