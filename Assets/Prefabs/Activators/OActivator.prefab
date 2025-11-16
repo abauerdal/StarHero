@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 111
   player: {fileID: 0}
+  bulletColor: {r: 0.17254902, g: 0.45490196, b: 0.8235294, a: 0}
+  bulletSprite: {fileID: -6320011379888930937, guid: 12e61bd049b854e4e9a009bb998ac7ca, type: 3}
 --- !u!58 &2086690913488238043
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,4 +140,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2.56
+  m_Radius: 0.075

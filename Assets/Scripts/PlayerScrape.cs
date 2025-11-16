@@ -9,7 +9,7 @@ public class PlayerScrape : MonoBehaviour
     {
         if (other.CompareTag("hostile"))
         {
-            if (!player.wasHitThisFrame)
+            if (!player.IsInvincible())
             {
                 player.AddScrapePoints(pointsPerScrape);
             }

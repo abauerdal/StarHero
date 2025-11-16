@@ -21,7 +21,7 @@ TagManager:
   - PlayerCore
   - PlayerScrape
   - Hostile
-  - 
+  - Player_Bullets
   - 
   - 
   - 
@@ -56,6 +56,9 @@ TagManager:
     locked: 0
   - name: Bullets
     uniqueID: 1896277389
+    locked: 0
+  - name: Player_Bullets
+    uniqueID: 406459331
     locked: 0
   m_RenderingLayers:
   - Default

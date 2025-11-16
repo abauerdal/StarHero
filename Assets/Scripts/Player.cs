@@ -1,24 +1,32 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI; 
 public class Player : MonoBehaviour
 {
     public int startHp;
     int hp;
-    public float bulletCooldown;
-    float bulletTimer;
+    public float invincibilityTime;
+    float invincibilityTimer;
+    private bool isInvincible = false;
     public GameObject bulletPrefab; // Reference to the bullet prefab
     public Transform bulletSpawnPoint; // Point where bullets spawn
     public float bulletSpeed; // Speed of the bullet
+    public AudioClip hurtSound;
 
     public Text playerHealthText;
     public Text WhammyBarText;
 
+    public float invincibityFlashSpeed; //Must be less than invincibility time
+    private float invincibityFlashTimer;
+
+    private SpriteRenderer playerSprite;
+
     int scrapePoints = 0;
-    [HideInInspector] public bool wasHitThisFrame = false;
 
     public int damagePerHit = 1; 
     void Start()
     {
+        playerSprite = GetComponent<SpriteRenderer>();
         hp = startHp;
         UpdateHealthText();
         UpdateWhammyBar();
@@ -26,25 +34,34 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        bulletTimer -= Time.deltaTime;
-
-        wasHitThisFrame = false;
-        /*
-        if (Input.GetKey(KeyCode.Space) && bulletTimer <= 0)
+        invincibilityTimer -= Time.deltaTime;
+        invincibityFlashTimer -= Time.deltaTime;
+        
+        if (invincibilityTimer <= 0)
         {
-            Shoot();
-            bulletTimer = bulletCooldown;
+            isInvincible = false;
+            playerSprite.enabled = true; // Ensure sprite is visible after invincibility ends
         }
-        */
+        else
+        {
+            if(invincibityFlashTimer <= 0)
+            {
+                playerSprite.enabled = !playerSprite.enabled;
+                invincibityFlashTimer = invincibityFlashSpeed;
+            }
+        }
+        
     }
 
-    public void Shoot()
+    public void Shoot(Color bulletColor, Sprite bulletSprite)
     {
         
         if (bulletPrefab != null && bulletSpawnPoint != null)
         {
             
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.identity);
+            bullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
+            bullet.GetComponent<Light2D>().color = bulletColor;
             bullet.transform.rotation = Quaternion.Euler(0, 0, 90); // Rotate the bullet to face upwards
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             if (rb != null)
@@ -61,12 +78,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("hostile") && bulletTimer <= 0)
+        if (col.CompareTag("hostile") && !isInvincible)
         {
-           
+                col.GetComponent<Bullet>().TriggerDestruction(); ;
                 TakeDamage(damagePerHit);
                 print(hp);
-                bulletTimer = bulletCooldown;
+                invincibilityTimer = invincibilityTime;
         }
     }
 
@@ -75,7 +92,8 @@ public class Player : MonoBehaviour
         hp -= damage;
         hp = Mathf.Clamp(hp, 0, startHp);
         UpdateHealthText();
-        wasHitThisFrame = true;
+        isInvincible = true;
+        SFXManager.instance.PlaySound(hurtSound, 0.5f);
     }
 
     void UpdateHealthText()
@@ -96,5 +114,10 @@ public class Player : MonoBehaviour
     {
         if (WhammyBarText != null)
             WhammyBarText.text = $"Whammy: {scrapePoints}";
+    }
+
+    public bool IsInvincible()
+    {
+        return isInvincible;
     }
 }

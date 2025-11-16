@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(transform.position, direction, Color.red);
         if (freezeRotation)
         {
             transform.position += direction * speed * Time.deltaTime;
@@ -36,6 +35,11 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void TriggerDestruction()
+    {
+        Destroy(gameObject);
     }
 }
 

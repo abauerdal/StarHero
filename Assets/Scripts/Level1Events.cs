@@ -30,7 +30,7 @@ public class Level1Events : MonoBehaviour
                     new SingleBulletPattern()
                 });
 
-                bulletSpawnerObject.transform.position = new Vector3(-3f, -1.25f);
+                bulletSpawnerObject.transform.position = new Vector3(-5f, -1.25f);
 
                 BulletSpawner bulletSpawner = bulletSpawnerObject.GetComponent<BulletSpawner>();
 

@@ -217,11 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHp: 3
-  bulletCooldown: 0.2
+  invincibilityTime: 1.5
   bulletPrefab: {fileID: 4493589431369528596, guid: e3a24c1b848f75d42a57fbe14adb83a7, type: 3}
   bulletSpawnPoint: {fileID: 1807144984591471178}
   bulletSpeed: 3
+  hurtSound: {fileID: 8300000, guid: 6707e36006114f3498fbd6ef1caa0ad0, type: 3}
   playerHealthText: {fileID: 0}
   WhammyBarText: {fileID: 0}
-  wasHitThisFrame: 0
+  invincibityFlashSpeed: 0.1
   damagePerHit: 1

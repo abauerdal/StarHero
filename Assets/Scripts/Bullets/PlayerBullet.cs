@@ -1,29 +1,38 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerBullet : MonoBehaviour
 {
-    public Vector2 velocity;
-    public float speed;
-    public float rotation;
-    public float lifetime = 5f;
+    public float speed = 5f;
 
-    private float timer;
+    public Vector3 target;
+
+    public float effectOfCurve = 5f;
+
+    private Vector3 moveDirection;
 
     void Start()
     {
-        timer = lifetime;
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        moveDirection = transform.up;
     }
 
     void Update()
     {
-        transform.Translate(velocity.normalized * speed * Time.deltaTime);
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
+        Vector3 directionToTarget = target - transform.position;
 
+        //How close we are to the target on the Y axis
+        float yProximity = Mathf.Max(0.1f, Mathf.Abs(target.y - transform.position.y));
+
+        //Exponential angle the closer we are to the target
+        float turnAngle = (effectOfCurve * Time.deltaTime) / yProximity;
+
+        //Smoothly calculate direction based on the new angle and our current direction (This way we don't have to rotate the bullet and the sprite is locked in place)
+        moveDirection = Vector3.Slerp(moveDirection, directionToTarget.normalized, turnAngle);
+
+        transform.position += moveDirection * speed * Time.deltaTime;
+    }
 
 }

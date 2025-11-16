@@ -5,6 +5,10 @@ public class Activator : MonoBehaviour
     public KeyCode key; // Key to press for the activator
     public Player player;
 
+    [Header("Bullet Attributes")]
+    public Color bulletColor;
+    public Sprite bulletSprite;
+
     // Regular notes
     bool activeRegularNote = false; // Whether the activator is in range of a note
     private Note regularNote; // Reference to the note in range
@@ -24,7 +28,7 @@ public class Activator : MonoBehaviour
             {
                 Destroy(regularNote.gameObject);
                 Debug.Log("Note hit!");
-                player.Shoot();
+                player.Shoot(bulletColor, bulletSprite);
             }
             // Hold note press
             else if (inStartZone && !holdNote.pressed)
@@ -47,7 +51,7 @@ public class Activator : MonoBehaviour
                 holdNote.completed = true;
                 Debug.Log("Hold note completed!");
                 Destroy(holdNote.gameObject);
-                player.Shoot(); // Big laser later?
+                player.Shoot(bulletColor, bulletSprite); // Big laser later?
                 holdNote = null;
             }
             else if (holdNote != null && holdNote.pressed)
