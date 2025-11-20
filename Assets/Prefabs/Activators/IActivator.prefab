@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2742784361008391435}
   - component: {fileID: 1040587119167868439}
   - component: {fileID: 2302188400161584239}
-  - component: {fileID: 873117287350526377}
+  - component: {fileID: 2390487236508440219}
   m_Layer: 0
   m_Name: IActivator
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -178979035554933233, guid: 1e6d8097a0944a44fbf14e42b855d3df, type: 3}
+  m_Sprite: {fileID: 3897044360449565693, guid: 0f92e304a9c4baa45ab4ecba736e24f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
   player: {fileID: 0}
   bulletColor: {r: 1, g: 0.8784314, b: 0.28235295, a: 0}
   bulletSprite: {fileID: 1468238020601359458, guid: 1cfb125e8f40829468e7c3cd5d35c220, type: 3}
---- !u!58 &873117287350526377
-CircleCollider2D:
+--- !u!61 &2390487236508440219
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,5 +139,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.075
+  m_Offset: {x: 0, y: 0.033}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.26666668, y: 0.2}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.2, y: 0.12}
+  m_EdgeRadius: 0
