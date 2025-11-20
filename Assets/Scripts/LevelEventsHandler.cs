@@ -8,6 +8,7 @@ public class LevelEventsHandler : MonoBehaviour
     public AudioSource musicSource;
 
     public static double songTime = 0;
+    static float BARS_TO_SECONDS = 240f / 140f;
 
     public class LevelEvent
     {
@@ -28,6 +29,7 @@ public class LevelEventsHandler : MonoBehaviour
     void Start()
     {
         songStartDSPTime = AudioSettings.dspTime + 5f;
+        //musicSource.time += (BARS_TO_SECONDS * 95);
         musicSource.PlayScheduled(songStartDSPTime);
     }
 
