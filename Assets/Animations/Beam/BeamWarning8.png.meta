@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2826d4af5a65ce54580516a4fc4c2acb
+guid: 955aab5e91221eb4e9a4a2a416b6f85e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 629975692952470109
-    second: BeamWarning1_0
+      213: -5672004753804733647
+    second: BeamWarning7_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeamWarning1_0
+      name: BeamWarning7_0
       rect:
         serializedVersion: 2
         x: 6
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5200931e8f1eb800800000000000000
-      internalID: 629975692952470109
+      spriteID: 133542d5abdf841b0800000000000000
+      internalID: -5672004753804733647
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BeamWarning1_0: 629975692952470109
+      BeamWarning7_0: -5672004753804733647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

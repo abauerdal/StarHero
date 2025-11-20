@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2826d4af5a65ce54580516a4fc4c2acb
+guid: c4a6e0b6544ec7f4bad3032fc49e981a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 629975692952470109
-    second: BeamWarning1_0
+      213: -3756353692723727066
+    second: BeamWarningScalable12_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -42,17 +42,17 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 120
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 2, y: 0, z: 2, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BeamWarning1_0
+      name: BeamWarningScalable12_0
       rect:
         serializedVersion: 2
-        x: 6
+        x: 0
         y: 0
-        width: 20
-        height: 32
+        width: 36
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5200931e8f1eb800800000000000000
-      internalID: 629975692952470109
+      spriteID: 625b97ee730cedbc0800000000000000
+      internalID: -3756353692723727066
       vertices: []
       indices: 
       edges: []
@@ -125,8 +125,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BeamWarning1_0: 629975692952470109
+      BeamWarningScalable12_0: -3756353692723727066
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
