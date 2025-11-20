@@ -21,6 +21,7 @@ public class Activator : MonoBehaviour
 
     void Update()
     {
+        if (LevelHandler.instance.gameOverTriggered) { return; }
         if (Input.GetKeyDown(key))
         {
             // Regular note press

@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Text healthText;            // Assign a UI Text element in the Inspector
 
     private float currentHealth;
+    public AudioClip enemyDefeatSound;
 
     void Start()
     {
@@ -20,6 +21,9 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (currentHealth <= 0) {
+            transform.Translate(new Vector3(0, 0.5f * Time.deltaTime, 0));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -33,10 +37,23 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthText();
+        if (currentHealth > 0)
+        {
+            currentHealth -= damage;
+            if (currentHealth <= 0)
+            {
+                SFXManager.instance.PlaySound(enemyDefeatSound, 1f);
+                LevelHandler.instance.TriggerLevelEnd();
+            }
+            UpdateHealthText();
+        }
+    }
 
+    public void ResetEnemy()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthText();
+        transform.position = new Vector3(0, 3.2f, 0);
     }
 
     void UpdateHealthText()
@@ -46,4 +63,5 @@ public class Enemy : MonoBehaviour
             healthText.text = $"Enemy Health: {currentHealth:0}";
         }
     }
+
 }

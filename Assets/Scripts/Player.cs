@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     public Transform bulletSpawnPoint; // Point where bullets spawn
     public float bulletSpeed; // Speed of the bullet
     public AudioClip hurtSound;
+    public AudioClip explosionSound;
+    public Sprite defaultSprite;
+    public Sprite deathSprite;
 
     public Text playerHealthText;
     public Text WhammyBarText;
@@ -36,21 +39,22 @@ public class Player : MonoBehaviour
     {
         invincibilityTimer -= Time.deltaTime;
         invincibityFlashTimer -= Time.deltaTime;
-        
-        if (invincibilityTimer <= 0)
-        {
-            isInvincible = false;
-            playerSprite.enabled = true; // Ensure sprite is visible after invincibility ends
-        }
-        else
-        {
-            if(invincibityFlashTimer <= 0)
+
+        if (hp != 0) { 
+            if (invincibilityTimer <= 0)
             {
-                playerSprite.enabled = !playerSprite.enabled;
-                invincibityFlashTimer = invincibityFlashSpeed;
+                isInvincible = false;
+                playerSprite.enabled = true; // Ensure sprite is visible after invincibility ends
+            }
+            else
+            {
+                if(invincibityFlashTimer <= 0)
+                {
+                    playerSprite.enabled = !playerSprite.enabled;
+                    invincibityFlashTimer = invincibityFlashSpeed;
+                }
             }
         }
-        
     }
 
     public void Shoot(Color bulletColor, Sprite bulletSprite)
@@ -78,22 +82,47 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("hostile") && !isInvincible)
+        if (col.CompareTag("hostile"))
         {
                 col.GetComponent<Bullet>().TriggerDestruction(); ;
                 TakeDamage(damagePerHit);
                 print(hp);
-                invincibilityTimer = invincibilityTime;
         }
     }
 
     void TakeDamage(int damage)
     {
-        hp -= damage;
-        hp = Mathf.Clamp(hp, 0, startHp);
+        if (!isInvincible)
+        {
+            if (hp > 0)
+            {
+                hp -= damage;
+            }
+            UpdateHealthText();
+            if(hp != 0)
+            {
+                invincibilityTimer = invincibilityTime;
+                SFXManager.instance.PlaySound(hurtSound, 0.5f);
+            }
+            isInvincible = true;
+            if (hp <= 0)
+            {
+                //TODO: Trigger explosion animation
+                SFXManager.instance.PlaySound(explosionSound, 1f);
+                gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
+                LevelHandler.instance.TriggerGameOver();
+            }
+        }
+    }
+
+    public void ResetPlayer()
+    {
+        hp = startHp;
+        isInvincible = false;
+        invincibilityTimer = 0f;
+        gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
         UpdateHealthText();
-        isInvincible = true;
-        SFXManager.instance.PlaySound(hurtSound, 0.5f);
+        transform.position = new Vector3(0, -3, 0);
     }
 
     void UpdateHealthText()

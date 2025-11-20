@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (LevelHandler.instance.gameOverTriggered) { return; }
         //Set direction to the most recent movement
         if (Input.GetKeyDown(KeyCode.A))
         {
