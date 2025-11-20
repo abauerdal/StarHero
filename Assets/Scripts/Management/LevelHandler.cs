@@ -45,6 +45,7 @@ public class LevelHandler : MonoBehaviour
     public void TriggerLevelEnd()
     {
         gameOverTriggered = true;
+        DeleteAllPlayerBullets();
         levelEventsHandler.Pause();
         Invoke("OpenLevelEndMenu", 5f);
     }
@@ -103,5 +104,16 @@ public class LevelHandler : MonoBehaviour
     public void BackToMainMenu()
     {
         levelLoader.LoadLevel("LevelSelectScene");
+    }
+
+    private void DeleteAllPlayerBullets()
+    {
+        GameObject[] playerBullets = GameObject.FindGameObjectsWithTag("Player_bullet");
+
+        // Iterate through the array and destroy each GameObject
+        foreach (GameObject pb in playerBullets)
+        {
+            Destroy(pb);
+        }
     }
 }
