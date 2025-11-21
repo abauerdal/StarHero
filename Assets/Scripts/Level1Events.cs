@@ -24,7 +24,7 @@ public class Level1Events : MonoBehaviour
             time = 0f,
             action = () =>
             {
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerFollowPlayer(),
                     new SingleBulletPattern()
@@ -43,7 +43,15 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.freezeBulletRotation = false; //what do these last two do malcolm lol i forgot
                 bulletSpawner.spriteOffSet = -45f; // ^
 
+                var aoeAttackSpawnerObject = bulletPatternFactory.CreateAOEPattern(this.transform);
 
+                aoeAttackSpawnerObject.transform.position = new Vector3(-5f, -1.25f);
+
+                AOEAttackSpawner aoeAttackSpawner = aoeAttackSpawnerObject.GetComponent<AOEAttackSpawner>();
+
+                aoeAttackSpawner.direction = 90; //90 is facing down, 180 facing down, 270 facing left.
+                aoeAttackSpawner.warningDuration = BARS_TO_SECONDS;
+                aoeAttackSpawner.attackDuration = BARS_TO_SECONDS / 2;
             }
         });
 
@@ -54,7 +62,7 @@ public class Level1Events : MonoBehaviour
             {
                 //Single Bullet
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SingleBulletPattern()
                 });
@@ -70,7 +78,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 0;
                 bulletSpawner.timeToLive = 30f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SingleBulletPattern()
                 });
@@ -86,7 +94,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 180;
                 bulletSpawner.timeToLive = 30f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SingleBulletPattern()
                 });
@@ -102,7 +110,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 0;
                 bulletSpawner.timeToLive = 30f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SingleBulletPattern()
                 });
@@ -121,7 +129,7 @@ public class Level1Events : MonoBehaviour
 
                 //Single with movement
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerMovement(
                         new Vector3[]
@@ -147,7 +155,7 @@ public class Level1Events : MonoBehaviour
 
                 //Single with scoped spin movement
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerSpin(8, 30, false),
                     new SingleBulletPattern()
@@ -164,7 +172,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.direction = 0;
                 bulletSpawner.timeToLive = 100f;
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerSpin(8, 30, false),
                     new SingleBulletPattern()
@@ -184,7 +192,7 @@ public class Level1Events : MonoBehaviour
 
                 //Single with scoped spin movement (back and forth)
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerSpin(15, 180, true),
                     new SingleBulletPattern()
@@ -204,7 +212,7 @@ public class Level1Events : MonoBehaviour
 
                 //Single with radial spin movement
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerSpin(32, 360, false),
                     new SingleBulletPattern()
@@ -224,7 +232,7 @@ public class Level1Events : MonoBehaviour
 
                 //Spread no movement
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SpreadBulletPattern(5, 50, false)
                 });
@@ -241,7 +249,7 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.timeToLive = 100f;
 
 
-                bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SpreadBulletPattern(5, 50, true)
                 });
@@ -260,7 +268,7 @@ public class Level1Events : MonoBehaviour
 
                 //Radial Spread
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new SpreadBulletPattern(16, 360, true)
                 });
@@ -278,8 +286,8 @@ public class Level1Events : MonoBehaviour
                 */
 
                 //Needle (no freeze bullet rotation & player follow)
-                
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerFollowPlayer(),
                     new SingleBulletPattern()
@@ -297,11 +305,11 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.timeToLive = 100f;
                 bulletSpawner.freezeBulletRotation = false;
                 bulletSpawner.spriteOffSet = -45f;
-                
+
 
                 //Note Pattern (freeze bullet rotation)
                 /*
-                var bulletSpawnerObject = bulletPatternFactory.Create(this.transform, new IBulletPatternAttribute[]
+                var bulletSpawnerObject = bulletPatternFactory.CreateBulletPattern(this.transform, new IBulletPatternAttribute[]
                 {
                     new BulletSpawnerFollowPlayer(),
                     new SingleBulletPattern()

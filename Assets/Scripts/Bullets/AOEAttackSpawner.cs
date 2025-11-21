@@ -9,7 +9,8 @@ public class AOEAttackSpawner : MonoBehaviour
     public float warningDuration = 4.0f;
     public float attackDuration = 2f;
     public float direction; // Fixed rotation for the bullet
-
+    
+    private bool hasAttacked = false;
     double songTimeAtCreation;
     GameObject beamWarning;
     GameObject beamAttack;
@@ -20,7 +21,7 @@ public class AOEAttackSpawner : MonoBehaviour
         songTimeAtCreation = LevelEventsHandler.songTime;
         transform.rotation = Quaternion.Euler(0, 0, direction);
 
-        GameObject beamWarning = Instantiate(beamWarningPrefab, new Vector3(), Quaternion.identity);
+        beamWarning = Instantiate(beamWarningPrefab, new Vector3(), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -28,11 +29,13 @@ public class AOEAttackSpawner : MonoBehaviour
     {
         double currentSongTime = LevelEventsHandler.songTime;
 
-
         if (currentSongTime >= songTimeAtCreation + warningDuration)
         {
-            GameObject beamAttack = Instantiate(beamAttackPrefab, new Vector3(), Quaternion.identity);
-            Destroy(beamWarning);
+            if (!hasAttacked) {
+                beamAttack = Instantiate(beamAttackPrefab, new Vector3(), Quaternion.identity);
+                Destroy(beamWarning);
+                hasAttacked = true;
+            }
 
             if (currentSongTime >= songTimeAtCreation + warningDuration + attackDuration)
             {
