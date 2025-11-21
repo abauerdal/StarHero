@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float damagePerHit = 1f;    // each bullet does this much damage
 
     [Header("UI Settings")]
-    public Text healthText;            // Assign a UI Text element in the Inspector
+    public Slider healthSlider;            // Assign a UI Text element in the Inspector
 
     private float currentHealth;
     public AudioClip enemyDefeatSound;
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        UpdateHealthText();
+        UpdateHealthUI();
     }
 
     private void Update()
@@ -45,22 +45,23 @@ public class Enemy : MonoBehaviour
                 SFXManager.instance.PlaySound(enemyDefeatSound, 1f);
                 LevelHandler.instance.TriggerLevelEnd();
             }
-            UpdateHealthText();
+            UpdateHealthUI();
         }
     }
 
     public void ResetEnemy()
     {
         currentHealth = maxHealth;
-        UpdateHealthText();
+        UpdateHealthUI();
         transform.position = new Vector3(0, 3.2f, 0);
     }
 
-    void UpdateHealthText()
+    void UpdateHealthUI()
     {
-        if (healthText != null)
+        if (healthSlider != null)
         {
-            healthText.text = $"Enemy Health: {currentHealth:0}";
+            healthSlider.maxValue = maxHealth;
+            healthSlider.value = currentHealth;
         }
     }
 

@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public Sprite deathSprite;
 
     public Slider playerHealthSlider;
-    public Text WhammyBarText;
+    public Slider whammyBarSlider;
 
     public float invincibityFlashSpeed; //Must be less than invincibility time
     private float invincibityFlashTimer;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer playerSprite;
 
     int scrapePoints = 0;
+    int maxScrapePoints = 100;
 
     public int damagePerHit = 1; 
     void Start()
@@ -147,8 +148,9 @@ public class Player : MonoBehaviour
 
     void UpdateWhammyBar()
     {
-        if (WhammyBarText != null)
-            WhammyBarText.text = $"Whammy: {scrapePoints}";
+        if (whammyBarSlider != null)
+            whammyBarSlider.maxValue = maxScrapePoints;
+            whammyBarSlider.value = scrapePoints;
     }
 
     public bool IsInvincible()

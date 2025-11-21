@@ -50,9 +50,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 1681966347
-    locked: 0
   - name: Enemies
     uniqueID: 2733459541
     locked: 0
@@ -64,6 +61,15 @@ TagManager:
     locked: 0
   - name: Player_Bullets
     uniqueID: 406459331
+    locked: 0
+  - name: Images
+    uniqueID: 4256475643
+    locked: 0
+  - name: Sprite_UI
+    uniqueID: 2929710037
+    locked: 0
+  - name: UI
+    uniqueID: 1681966347
     locked: 0
   m_RenderingLayers:
   - Default
