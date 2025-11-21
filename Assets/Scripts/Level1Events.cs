@@ -42,16 +42,6 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.timeToLive = 100f; //when to stop firing.
                 bulletSpawner.freezeBulletRotation = false; //what do these last two do malcolm lol i forgot
                 bulletSpawner.spriteOffSet = -45f; // ^
-
-                var aoeAttackSpawnerObject = bulletPatternFactory.CreateAOEPattern(this.transform);
-
-                aoeAttackSpawnerObject.transform.position = new Vector3(-5f, -1.25f);
-
-                AOEAttackSpawner aoeAttackSpawner = aoeAttackSpawnerObject.GetComponent<AOEAttackSpawner>();
-
-                aoeAttackSpawner.direction = 90; //90 is facing down, 180 facing down, 270 facing left.
-                aoeAttackSpawner.warningDuration = BARS_TO_SECONDS;
-                aoeAttackSpawner.attackDuration = BARS_TO_SECONDS / 2;
             }
         });
 
@@ -325,6 +315,29 @@ public class Level1Events : MonoBehaviour
                 bulletSpawner.timeToLive = 100f;
                 bulletSpawner.freezeBulletRotation = true;
                 bulletSpawner.spriteOffSet = 0;
+                */
+
+                //AOE ATTACK
+                /*
+                var aoeAttackSpawnerObject = bulletPatternFactory.CreateAOEPattern(this.transform);
+
+                aoeAttackSpawnerObject.transform.position = new Vector3(0, -3);
+
+                AOEAttackSpawner aoeAttackSpawner = aoeAttackSpawnerObject.GetComponent<AOEAttackSpawner>();
+
+                aoeAttackSpawner.direction = 90;
+                aoeAttackSpawner.warningDuration = BARS_TO_SECONDS;
+                aoeAttackSpawner.attackDuration = BARS_TO_SECONDS / 2;
+                aoeAttackSpawner.width = 2f;
+
+                aoeAttackSpawnerObject = bulletPatternFactory.CreateAOEPattern(this.transform);
+
+                aoeAttackSpawner = aoeAttackSpawnerObject.GetComponent<AOEAttackSpawner>();
+
+                aoeAttackSpawner.direction = 0;
+                aoeAttackSpawner.warningDuration = BARS_TO_SECONDS;
+                aoeAttackSpawner.attackDuration = BARS_TO_SECONDS / 2;
+                aoeAttackSpawner.width = 1f;
                 */
             }
         });

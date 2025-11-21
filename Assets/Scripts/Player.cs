@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public Sprite defaultSprite;
     public Sprite deathSprite;
 
-    public Text playerHealthText;
+    public Slider playerHealthSlider;
     public Text WhammyBarText;
 
     public float invincibityFlashSpeed; //Must be less than invincibility time
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         playerSprite = GetComponent<SpriteRenderer>();
         hp = startHp;
-        UpdateHealthText();
+        UpdateHealthUI();
         UpdateWhammyBar();
     }
 
@@ -82,11 +82,16 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("hostile"))
+        if (col.CompareTag("EnemyBullet"))
         {
-                col.GetComponent<Bullet>().TriggerDestruction(); ;
-                TakeDamage(damagePerHit);
-                print(hp);
+            col.GetComponent<Bullet>().TriggerDestruction();
+            TakeDamage(damagePerHit);
+            print(hp);
+        }
+        if (col.CompareTag("EnemyBeam"))
+        {
+            TakeDamage(damagePerHit);
+            print(hp);
         }
     }
 
@@ -98,7 +103,7 @@ public class Player : MonoBehaviour
             {
                 hp -= damage;
             }
-            UpdateHealthText();
+            UpdateHealthUI();
             if(hp != 0)
             {
                 invincibilityTimer = invincibilityTime;
@@ -121,15 +126,16 @@ public class Player : MonoBehaviour
         isInvincible = false;
         invincibilityTimer = 0f;
         gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
-        UpdateHealthText();
+        UpdateHealthUI();
         transform.position = new Vector3(0, -3, 0);
     }
 
-    void UpdateHealthText()
+    void UpdateHealthUI()
     {
-        if (playerHealthText != null)
+        if (playerHealthSlider != null)
         {
-            playerHealthText.text = $"Player Health: {hp}";
+            playerHealthSlider.maxValue = startHp;
+            playerHealthSlider.value = hp;
         }
     }
 

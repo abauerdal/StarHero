@@ -11,6 +11,8 @@ TagManager:
   - HoldNote
   - Player_bullet
   - Scrape_zone
+  - EnemyBullet
+  - EnemyBeam
   layers:
   - Default
   - TransparentFX
