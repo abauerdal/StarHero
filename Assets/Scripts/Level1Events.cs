@@ -8,7 +8,7 @@ public class Level1Events : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     //Direction 0 = right, 90 = up, 180 = left, 270 = down
-    void Start()
+    void Awake()
     {
         float BARS_TO_SECONDS = 240f / 130f;
         float BEATS_TO_SECONDS = 60f / 130f;

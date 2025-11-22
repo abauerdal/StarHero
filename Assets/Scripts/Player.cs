@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     public float bulletSpeed; // Speed of the bullet
     public AudioClip hurtSound;
     public AudioClip explosionSound;
-    public Sprite defaultSprite;
-    public Sprite deathSprite;
 
     public Slider playerHealthSlider;
     public Slider whammyBarSlider;
@@ -109,7 +107,7 @@ public class Player : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        if (!isInvincible)
+        if (!isInvincible && !LevelHandler.instance.gameOverTriggered)
         {
             if (hp > 0)
             {
@@ -137,7 +135,6 @@ public class Player : MonoBehaviour
         hp = startHp;
         isInvincible = false;
         invincibilityTimer = 0f;
-        gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
         UpdateHealthUI();
         transform.position = new Vector3(0, -3, 0);
         playerSprite.enabled = true;
@@ -169,10 +166,5 @@ public class Player : MonoBehaviour
     public bool IsInvincible()
     {
         return isInvincible;
-    }
-
-    public void HideSprite()
-    {
-        playerSprite.enabled = false;
     }
 }

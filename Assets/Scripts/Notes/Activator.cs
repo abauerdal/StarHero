@@ -29,6 +29,7 @@ public class Activator : MonoBehaviour
             {
                 Destroy(regularNote.gameObject);
                 Debug.Log("Note hit!");
+                NoteInformationHandler.instance.AddSuccessfulHit();
                 player.Shoot(bulletColor, bulletSprite);
             }
             // Hold note press
@@ -41,6 +42,7 @@ public class Activator : MonoBehaviour
             else
             {
                 Debug.Log("No note to hit!");
+                NoteInformationHandler.instance.AddHitNothing();
             }
         }
 
@@ -90,6 +92,7 @@ public class Activator : MonoBehaviour
             {
                 activeRegularNote = false;
                 regularNote = null;
+                NoteInformationHandler.instance.AddMissedNote();
             }
         }
         else if (col.CompareTag("HoldStart"))

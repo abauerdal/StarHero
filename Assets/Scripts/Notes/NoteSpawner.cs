@@ -12,6 +12,8 @@ public class NoteSpawner : MonoBehaviour
     public GameObject[] lanePrefabs = new GameObject[4];
     public Transform[] laneSpawnPoints;
 
+    public static int totalNotes = 0;
+
     static float BARS_TO_SECONDS = 240f / 140f;
     static float BEATS_TO_SECONDS = 60f / 140f;
 
@@ -777,10 +779,11 @@ public class NoteSpawner : MonoBehaviour
 
     };
 
-    private void Start()
+    private void Awake()
     {
         foreach(NoteEvent note in chart)
         {
+            totalNotes++;
             levelEventsHandler.levelEvents.Add(new LevelEventsHandler.LevelEvent
             {
                 time = note.time - 2.2f, // - (BARS_TO_SECONDS * n) -> To start the spawning at a certain point

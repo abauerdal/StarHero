@@ -583,7 +583,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: AOEBulletPatterns
+          m_StringArgument: SampleScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1708549614
@@ -667,9 +667,9 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 91c5b758fbd49c045853399c79805537, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.102
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -22,6 +22,7 @@ public class LevelHandler : MonoBehaviour
     public AudioClip victorySound;
     public Player player;
     public Enemy enemy;
+    public NoteInformationHandler noteInformationHandler;
 
     public bool gameOverTriggered = false;
     public bool pauseMenuOpen = false;
@@ -33,6 +34,8 @@ public class LevelHandler : MonoBehaviour
         {
             OpenPauseMenu();
         }
+
+        //TODO: Calculate if note debt is higher than player health to trigger game over
     }
 
     public void TriggerGameOver()
@@ -64,6 +67,7 @@ public class LevelHandler : MonoBehaviour
         levelEventsHandler.Restart();
         player.ResetPlayer();
         enemy.ResetEnemy();
+        noteInformationHandler.ResetNoteInformation();
     }
 
     public void OpenGameOverMenu()

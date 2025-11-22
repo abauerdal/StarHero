@@ -6,17 +6,14 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public float speed;
-    public Sprite leftTilt;
-    public Sprite rightTilt;
-    public Sprite noTilt;
     private float horizontalInput = 0;
     private float verticalInput = 0;
-    public SpriteRenderer playerSprite;
+    public Animator playerAnimator;
 
     // Update is called once per frame
     void Update()
     {
-        if (LevelHandler.instance.gameOverTriggered) { return; }
+        if (LevelHandler.instance.gameOverTriggered || LevelHandler.instance.pauseMenuOpen) { return; }
         //Set direction to the most recent movement
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -70,7 +67,8 @@ public class PlayerMovement : MonoBehaviour
         if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             horizontalInput = 0;
-            playerSprite.sprite = noTilt;
+            playerAnimator.SetBool("MovingLeft", false);
+            playerAnimator.SetBool("MovingRight", false);
         }
         if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
         {
@@ -85,13 +83,15 @@ public class PlayerMovement : MonoBehaviour
     private void MoveLeft()
     {
         horizontalInput = -1;
-        playerSprite.sprite = leftTilt;
+        playerAnimator.SetBool("MovingRight", false);
+        playerAnimator.SetBool("MovingLeft", true);
     }
 
     private void MoveRight()
     {
         horizontalInput = 1;
-        playerSprite.sprite = rightTilt;
+        playerAnimator.SetBool("MovingLeft", false);
+        playerAnimator.SetBool("MovingRight", true);
     }
 
     private void MoveUp()
