@@ -5,6 +5,8 @@ public class Note : MonoBehaviour
     Rigidbody2D rb;
     public float speed;
 
+    private bool wasHit = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -25,5 +27,15 @@ public class Note : MonoBehaviour
     void Update()
     {
         transform.position += Vector3.down * speed * Time.deltaTime;
+    }
+
+    public void Hit()
+    {
+        wasHit = true;
+    }
+
+    public bool getWasHit()
+    {
+        return wasHit;
     }
 }

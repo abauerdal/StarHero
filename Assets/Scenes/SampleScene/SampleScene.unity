@@ -953,7 +953,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1365257259
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6cf84c57bf9adfc45bdbea4dcf89c841, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000c3133a18d5d39fae0bc54064fba9b4fd
+  m_ApplyToSortingLayers: 00000000c3133a18d5d39fae0bc54064fba9b4fd6bc81948
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2140,9 +2140,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: 1209649259
+  m_SortingLayer: 5
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -2485,7 +2485,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1365257259
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e65fe327d194a8141b66f2727a0854eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2966,8 +2966,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 2091773729}
     m_Modifications:
     - target: {fileID: 1040587119167868439, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1040587119167868439, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1040587119167868439, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1209649259
       objectReference: {fileID: 0}
     - target: {fileID: 2302188400161584239, guid: fa63fda14a963614ca3f633f418647b9, type: 3}
       propertyPath: player
@@ -3993,8 +4001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c69c9b06aae99734496b2ac54a7e1705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
-  damagePerHit: 20
+  damagePerHit: 1
   healthSlider: {fileID: 1574712596}
   enemyDefeatSound: {fileID: 8300000, guid: 741bef5f31c78f843b48b6b8b636f3c0, type: 3}
 --- !u!61 &1424043266
@@ -4593,7 +4600,7 @@ PrefabInstance:
       objectReference: {fileID: 744253011}
     - target: {fileID: 8995942320424340362, guid: b8cb6fb142e68e0419a6c31728e1fa1f, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4679,7 +4686,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1365257259
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e65fe327d194a8141b66f2727a0854eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4921,7 +4928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 734695874287252678, guid: 077b3c999d2204442b24ef3f502a6a12, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3284040206764150235, guid: 077b3c999d2204442b24ef3f502a6a12, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5388,7 +5395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1557296844541120553, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2409678324546615559, guid: 7ea9e168bd4ce424785882fddcf6520d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,7 +4,6 @@ using UnityEngine.UI; // Needed for Text UI
 public class Enemy : MonoBehaviour
 {
     [Header("Enemy Settings")]
-    public float maxHealth = 100f;     // total health
     public float damagePerHit = 1f;    // each bullet does this much damage
 
     [Header("UI Settings")]
@@ -15,7 +14,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
+        healthSlider.maxValue = NoteSpawner.totalNotes;
+        currentHealth = NoteSpawner.totalNotes;
         UpdateHealthUI();
     }
 
@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
 
     public void ResetEnemy()
     {
-        currentHealth = maxHealth;
+        currentHealth = NoteSpawner.totalNotes;
         UpdateHealthUI();
         transform.position = new Vector3(0, 3.2f, 0);
     }
@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour
     {
         if (healthSlider != null)
         {
-            healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
         }
     }

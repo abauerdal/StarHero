@@ -62,6 +62,9 @@ TagManager:
   - name: Player_Bullets
     uniqueID: 406459331
     locked: 0
+  - name: GuitarRoll
+    uniqueID: 1209649259
+    locked: 0
   - name: Images
     uniqueID: 4256475643
     locked: 0

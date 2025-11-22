@@ -27,6 +27,7 @@ public class Activator : MonoBehaviour
             // Regular note press
             if (activeRegularNote)
             {
+                regularNote.Hit();
                 Destroy(regularNote.gameObject);
                 Debug.Log("Note hit!");
                 NoteInformationHandler.instance.AddSuccessfulHit();
@@ -92,7 +93,10 @@ public class Activator : MonoBehaviour
             {
                 activeRegularNote = false;
                 regularNote = null;
-                NoteInformationHandler.instance.AddMissedNote();
+                if (!col.GetComponent<Note>().getWasHit())
+                {
+                    NoteInformationHandler.instance.AddMissedNote();
+                }
             }
         }
         else if (col.CompareTag("HoldStart"))

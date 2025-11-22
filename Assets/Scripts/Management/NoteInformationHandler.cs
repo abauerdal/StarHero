@@ -52,4 +52,9 @@ public class NoteInformationHandler : MonoBehaviour
         hitNothing = 0;
         UpdateHealthDebt();
     }
+
+    public int GetHealthDebt()
+    {
+        return missedNotes + hitNothing;
+    }
 }

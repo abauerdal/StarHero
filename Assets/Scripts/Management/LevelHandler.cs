@@ -26,6 +26,13 @@ public class LevelHandler : MonoBehaviour
 
     public bool gameOverTriggered = false;
     public bool pauseMenuOpen = false;
+    float noteCountPerPlayerHealth;
+
+    void Start()
+    {
+        float fourtyPercentOfNotes = NoteSpawner.totalNotes * 0.4f;
+        noteCountPerPlayerHealth = fourtyPercentOfNotes / player.startHp;
+    }
 
     // Update is called once per frame
     void Update()
@@ -35,7 +42,11 @@ public class LevelHandler : MonoBehaviour
             OpenPauseMenu();
         }
 
-        //TODO: Calculate if note debt is higher than player health to trigger game over
+        //If the health debt exceeds the allowed amount, trigger game over
+        if (noteInformationHandler.GetHealthDebt() >= (noteCountPerPlayerHealth * player.GetHealth()) && !gameOverTriggered)
+        {
+            TriggerGameOver();
+        }
     }
 
     public void TriggerGameOver()

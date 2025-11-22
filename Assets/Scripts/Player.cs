@@ -167,4 +167,9 @@ public class Player : MonoBehaviour
     {
         return isInvincible;
     }
+
+    public int GetHealth()
+    {
+        return hp;
+    }
 }
