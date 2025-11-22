@@ -583,7 +583,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: AOEBulletPatterns
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1708549614
@@ -794,11 +794,11 @@ Transform:
   m_GameObject: {fileID: 1932411426}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1920.0002, y: 1080.0002, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 15.99668, y: 8.998134, z: 0.008331603}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2044847737}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1932411428
 MonoBehaviour:
@@ -962,7 +962,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1708549612}
-  - {fileID: 1932411427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -975,6 +974,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 201114641}
+  - {fileID: 1932411427}
   - {fileID: 2044847737}
   - {fileID: 315394663}
   - {fileID: 650604859}
