@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private float invincibityFlashTimer;
 
     private SpriteRenderer playerSprite;
+    private Animator playerAnimator;
 
     int scrapePoints = 0;
     int maxScrapePoints = 100;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerSprite = GetComponent<SpriteRenderer>();
+        playerAnimator = GetComponent<Animator>();
         hp = startHp;
         UpdateHealthUI();
         UpdateWhammyBar();
@@ -54,6 +56,15 @@ public class Player : MonoBehaviour
                     playerSprite.enabled = !playerSprite.enabled;
                     invincibityFlashTimer = invincibityFlashSpeed;
                 }
+            }
+        }
+        else
+        {
+            AnimatorStateInfo stateInfo = playerAnimator.GetCurrentAnimatorStateInfo(0);
+
+            if (stateInfo.IsName("ShipDeath") && stateInfo.normalizedTime >= 1f)
+            {
+                playerSprite.enabled = false;
             }
         }
     }
@@ -113,9 +124,9 @@ public class Player : MonoBehaviour
             isInvincible = true;
             if (hp <= 0)
             {
-                //TODO: Trigger explosion animation
+                playerAnimator.SetTrigger("PlayerDeath");
                 SFXManager.instance.PlaySound(explosionSound, 1f);
-                gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
+                //gameObject.GetComponent<SpriteRenderer>().sprite = deathSprite;
                 LevelHandler.instance.TriggerGameOver();
             }
         }
@@ -129,6 +140,8 @@ public class Player : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = defaultSprite;
         UpdateHealthUI();
         transform.position = new Vector3(0, -3, 0);
+        playerSprite.enabled = true;
+        playerAnimator.SetTrigger("PlayerRespawn");
     }
 
     void UpdateHealthUI()
@@ -156,5 +169,10 @@ public class Player : MonoBehaviour
     public bool IsInvincible()
     {
         return isInvincible;
+    }
+
+    public void HideSprite()
+    {
+        playerSprite.enabled = false;
     }
 }
